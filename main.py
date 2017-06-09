@@ -94,9 +94,9 @@ def validate_user_info():
 
 #If all the input is valid, then you should redirect the user to a welcome page that uses the username input to display a welcome message of: "Welcome, [username]!"
 
-@app.route('/welcome', methods=['POST'])
+@app.route('/welcome')
 def welcome():
-    username = request.form["username"]
+    username = request.args.get("username")
     template = jinja_env.get_template('welcome.html')
     return template.render(name = username)
 
